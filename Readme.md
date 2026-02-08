@@ -1,9 +1,6 @@
-# dwm Cheatsheet – Chandra's Custom Build (2026)
+# Dwm Cheatsheet –
 **MODKEY** = **Super / Windows key** (Mod4Mask)
 
-**Tanggal config terakhir:** ~ Februari 2026  
-**Tema warna:** Nord-inspired  
-**Tags/Workspaces:** PENTEST · DEVEL · MISC · INTERNET · ⬚
 
 ## Ringkasan Perintah Paling Sering Dipakai
 
@@ -103,11 +100,5 @@
 ## Catatan Tambahan
 
 - **spawnandview** → membuka aplikasi + langsung pindah ke tag tertentu (contoh: Firefox & VSCode)
-- **leak** → kemungkinan custom menu/launcher BlackArch atau pribadi
 - Gaps default: 12px, border: 1px, bar height: 24px
 - Font utama: Terminus pixelsize=15 (non-antialias)
-
-Semoga membantu banget buat kerja sehari-hari!  
-Jika ada patch baru atau keybinding tambahan, tinggal update file ini saja.
-
-Happy tiling! 
