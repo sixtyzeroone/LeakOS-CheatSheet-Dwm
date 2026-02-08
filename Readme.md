@@ -1,215 +1,113 @@
+# dwm Cheatsheet – Chandra's Custom Build (2026)
+**MODKEY** = **Super / Windows key** (Mod4Mask)
 
-DWM Configuration Cheatsheet
+**Tanggal config terakhir:** ~ Februari 2026  
+**Tema warna:** Nord-inspired  
+**Tags/Workspaces:** PENTEST · DEVEL · MISC · INTERNET · ⬚
 
-    A comprehensive guide to the keyboard shortcuts and mouse controls for my custom DWM setup
+## Ringkasan Perintah Paling Sering Dipakai
 
-📁 Project Structure
-text
+| Tombol                        | Fungsi                                   | Keterangan / Aplikasi                     |
+|-------------------------------|------------------------------------------|--------------------------------------------|
+| **Super + Enter**             | Buka terminal                            | xfce4-terminal                             |
+| **Super + m**                 | Buka menu utama                          | `leak` (custom launcher/menu)              |
+| **Super + e**                 | File manager                             | Thunar                                     |
+| **Super + f**                 | Buka Firefox → tag INTERNET              | Langsung ke tag 4                          |
+| **Super + Shift + c**         | Buka VS Code → tag DEVEL                 | tag 2                                      |
+| **Super + Shift + v**         | Buka vim di xterm → tag DEVEL            | tag 2                                      |
+| **Super + w**                 | Tutup window aktif                       | killclient                                 |
+| **Super + s**                 | Screenshot full screen                   | scrot                                      |
+| **Super + Shift + s**         | Screenshot area (select region)          | scrot -s                                   |
+| **Print Screen**              | Screenshot interaktif                    | xfce4-screenshooter -f                     |
 
-dwm/
-├── config.h          # Main configuration file
-├── patches/
-│   └── gaplessgrid.c # Custom layout patch
-└── layouts.c         # Layout definitions
+## Navigasi & Manipulasi Window
 
-🎨 Theme & Appearance
+| Tombol                        | Fungsi                                   |
+|-------------------------------|------------------------------------------|
+| **Super + j** / **k**         | Focus window berikutnya / sebelumnya     |
+| **Super + Shift + j** / **k** | Rotate stack window (bawah / atas)       |
+| **Super + Shift + f**         | Toggle floating ↔ tiling                 |
+| **Super + Tab**               | Ganti layout berikutnya                  |
+| **Super + Shift + Tab**       | Ganti layout sebelumnya                  |
+| **Super + Shift + b**         | Munculkan / sembunyikan bar              |
 
-    Colors: Nord color scheme variant
+## Ukuran & Master Area
 
-    Bar: Top bar, 24px height
+| Tombol                        | Fungsi                                   |
+|-------------------------------|------------------------------------------|
+| **Super + Shift + h**         | Kurangi lebar master area                |
+| **Super + Shift + l**         | Tambah lebar master area                 |
+| **Super + i**                 | Tambah jumlah client di master           |
+| **Super + Shift + i**         | Kurangi jumlah client di master          |
+| **Super + g**                 | Kurangi ukuran gap                       |
+| **Super + Shift + g**         | Tambah ukuran gap                        |
 
-    Gaps: 12px between windows
+## Pindah Tag / Workspace
 
-    Borders: 1px window borders
+| Tombol              | Tag      | Nama Tag     |
+|---------------------|----------|--------------|
+| **Super + m**       | 1        | PENTEST      |
+| **Super + 2**       | 2        | DEVEL        |
+| **Super + 3**       | 3        | MISC         |
+| **Super + 4**       | 4        | INTERNET     |
+| **Super + 5**       | 5        | ⬚            |
 
-    Font: Terminus (15px, no antialiasing)
+**Tambahan kombinasi:**
+- **Super + Ctrl + [1–5]**   → toggle view tag (tampilkan tambahan)
+- **Super + Shift + [1–5]**  → pindahkan window aktif ke tag tersebut
 
-⌨️ Keyboard Shortcuts
-Workspace Navigation
-Shortcut	Action	Workspace
-Super + M	Switch to workspace 1	PENTEST
-Super + 2	Switch to workspace 2	DEVEL
-Super + 3	Switch to workspace 3	MISC
-Super + 4	Switch to workspace 4	INTERNET
-Super + 5	Switch to workspace 5	⭒
-Super + Ctrl + 1-5	Toggle view workspace	-
-Super + Shift + 1-5	Move window to workspace	-
-Super + Ctrl + Shift + 1-5	Toggle tag window	-
-Window Management
-Shortcut	Action
-Super + J	Focus next window
-Super + K	Focus previous window
-Super + Tab	Cycle to next layout
-Super + Shift + Tab	Cycle to previous layout
-Super + W	Kill focused window
-Super + Shift + F	Toggle floating mode
-Super + Shift + J	Rotate stack up
-Super + Shift + K	Rotate stack down
-Super + .	Focus next monitor
-Super + ,	Focus previous monitor
-Super + Shift + .	Move window to next monitor
-Super + Shift + ,	Move window to previous monitor
-Layout & Size Control
-Shortcut	Action
-Super + Shift + H	Decrease master area (-5%)
-Super + Shift + L	Increase master area (+5%)
-Super + I	Increase number of master windows
-Super + Shift + I	Decrease number of master windows
-Super + G	Decrease gaps between windows
-Super + Shift + G	Increase gaps between windows
-Super + ←	Toggle color scheme
-Super + →	Cycle color scheme
-Application Launchers
-Shortcut	Application	Description
-Super + Enter	XFCE4 Terminal	Default terminal
-Super + A	XTerm (green)	84x26, black background
-Super + B	URxvt (yellow)	55x26, black background
-Super + C	URxvt (red)	55x26, black background
-Super + D	URxvt (white)	55x26, black background
-Super + F	Firefox	Auto to INTERNET workspace
-Super + Shift + C	VS Code	Auto to DEVEL workspace
-Super + Shift + V	Vim	Auto to DEVEL workspace
-Super + Shift + N	Nano	Auto to INTERNET workspace
-Super + M	Launch Menu	Custom leak/dmenu
-Super + N	Dmenu Run	Application launcher
-Super + E	Thunar	File manager
-Super + F3	VirtualBox	Auto to MISC workspace
-System Controls
-Shortcut	Action
-Super + Ctrl + R	Restart DWM
-Super + Shift + B	Toggle bar visibility
-Super + ↑	Increase brightness (+10%)
-Super + ↓	Decrease brightness (-10%)
-Super + R	Enable Redshift (2400K)
-Super + Shift + R	Disable Redshift
-Super + S	Take screenshot (scrot)
-Super + Shift + S	Take area screenshot
-Print Screen	Screenshot (xfce4-screenshooter)
-Super + F12	Toggle root mode
-🖱️ Mouse Controls
-Layout Indicator (Top-left)
-Button	Action
-Left Click	Set default layout
-Right Click	Cycle through layouts
-Window Title Bar
-Button	Action
-Middle Click	Zoom/maximize window
-Status Bar
-Button	Action
-Middle Click	Open terminal (urxvt)
-Window Client Area
-Shortcut + Button	Action
-Super + Left Click	Move window
-Super + Middle Click	Toggle floating
-Super + Right Click	Resize window
-Tag Bar (Workspaces)
-Shortcut + Button	Action
-Left Click	Switch workspace
-Right Click	Toggle view workspace
-Super + Left Click	Tag window to workspace
-Super + Right Click	Toggle tag window
-🏗️ Layouts
+## Pindah antar Monitor
 
-The configuration includes three layouts:
+| Tombol                        | Fungsi                                   |
+|-------------------------------|------------------------------------------|
+| **Super + ,**                 | Focus monitor sebelumnya                 |
+| **Super + .**                 | Focus monitor berikutnya                 |
+| **Super + Shift + ,**         | Pindah window ke monitor sebelumnya      |
+| **Super + Shift + .**         | Pindah window ke monitor berikutnya      |
 
-    [F] - Floating layout
+## Aplikasi & Tools Khusus
 
-    [M] - Gapless grid layout
+| Tombol                        | Aplikasi / Perintah                      | Tag tujuan   |
+|-------------------------------|------------------------------------------|--------------|
+| **Super + Shift + n**         | nano di xterm                            | INTERNET     |
+| **Super + F3**                | VirtualBox                               | MISC         |
+| **Super + F12**               | Toggle root mode (custom patch)          | —            |
+| **Super + r**                 | Redshift malam (2400K)                   | —            |
+| **Super + Shift + r**         | Matikan redshift                         | —            |
+| **Super + ↑**                 | Brightness +10%                          | —            |
+| **Super + ↓**                 | Brightness -10%                          | —            |
 
-    []= - Tile layout (master-slave)
+## Layout yang Tersedia
 
-⚙️ Auto-Assign Rules
+| Simbol   | Nama Layout          | Cara aktifkan                          |
+|----------|----------------------|----------------------------------------|
+| [F]      | Floating             | Default / no arrange function          |
+| [M]      | Gapless Grid         | **Super + Shift + f** atau patch       |
+| []=      | Tile                 | Klik kanan di LtSymbol bar             |
 
-Applications are automatically assigned to specific workspaces:
-Application	Workspace	Floating
-Firefox	INTERNET (4)	No
-Chromium	INTERNET (4)	No
-VS Code	DEVEL (2)	No
-XTerm (devterm)	DEVEL (2)	No
-URxvt	PENTEST (1)	No
-VirtualBox	INTERNET (4)	No
-XFCE4 Terminal	PENTEST (1)	No
-🎯 Configuration Details
-Colors
+- **Super + Tab** / **Shift + Tab** → cycle layout
 
-    Normal: #D8DEE9 on #0f101a with #2F343F border
+## Mouse Bindings (dengan Super)
 
-    Selected: #2e3440 on #C0C0C0 with #C0C0C0 border
+| Aksi Mouse                              | Fungsi                     |
+|-----------------------------------------|----------------------------|
+| **Super + Klik kiri** di window         | Drag / pindah window       |
+| **Super + Klik tengah** di window       | Toggle floating            |
+| **Super + Klik kanan** di window        | Resize window              |
+| **Klik tengah** di status text          | Buka terminal              |
+| **Klik kiri** di tag bar                | Pindah ke tag              |
+| **Klik kanan** di tag bar               | Toggle tag (tambah/tutup)  |
+| **Klik kiri** di LtSymbol               | Reset / kembali layout     |
+| **Klik kanan** di LtSymbol              | Ganti ke tile + cycle      |
 
-    Main: #888888 on #0f101a with #0f101a border
+## Catatan Tambahan
 
-    Root Bar: #00ffff on #0f101a with #550000 border
+- **spawnandview** → membuka aplikasi + langsung pindah ke tag tertentu (contoh: Firefox & VSCode)
+- **leak** → kemungkinan custom menu/launcher BlackArch atau pribadi
+- Gaps default: 12px, border: 1px, bar height: 24px
+- Font utama: Terminus pixelsize=15 (non-antialias)
 
-Workspace Tags
-c
+Semoga membantu banget buat kerja sehari-hari!  
+Jika ada patch baru atau keybinding tambahan, tinggal update file ini saja.
 
-static const char *tags[] = { "PENTEST", "DEVEL", "MISC", "INTERNET", "\u25f2" };
-
-Key Modifiers
-
-    Super = Mod4Mask (Windows/Meta key)
-
-    Shift = ShiftMask
-
-    Ctrl = ControlMask
-
-🚀 Quick Start Workflows
-Development Session
-bash
-
-Super + 2        # Switch to DEVEL workspace
-Super + Shift + C # Launch VS Code
-Super + Enter     # Open terminal
-
-Internet Browsing
-bash
-
-Super + 4        # Switch to INTERNET workspace  
-Super + F        # Launch Firefox
-
-Terminal Multi-tasking
-bash
-
-Super + M        # Switch to PENTEST workspace
-Super + A        # Open green XTerm (large)
-Super + B        # Open yellow URxvt
-Super + C        # Open red URxvt
-
-🐛 Troubleshooting
-Common Issues
-
-    Applications not launching in correct workspace: Check auto-assign rules in config.h
-
-    Gaps not changing: Ensure gaplessgrid patch is properly installed
-
-    Colors not updating: Restart DWM with Super + Ctrl + R
-
-Dependencies
-
-    dmenu or rofi for application launcher
-
-    scrot for screenshots
-
-    xfce4-screenshooter for Print Screen functionality
-
-    redshift for color temperature control
-
-    brightnessctl for backlight control
-
-    urxvt and xterm terminals
-
-📝 Notes
-
-    All shortcuts use the Super (Windows/Meta) key as modifier
-
-    Workspace numbers start from 1 (not 0)
-
-    The 5th workspace uses a special Unicode symbol (⭒)
-
-    Color schemes can be cycled through 4 different configurations
-
-    The bar can be toggled on/off with Super + Shift + B
-
-License: MIT
-Maintainer: Your Name
-Last Updated: $(date)
+Happy tiling! 
