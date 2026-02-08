@@ -1,8 +1,6 @@
-# Dwm Cheatsheet –
+# LeakOS Linux Dwm Cheatsheet
 **MODKEY** = **Super / Windows key** (Mod4Mask)
 
-
-## Ringkasan Perintah Paling Sering Dipakai
 
 | Tombol                        | Fungsi                                   | Keterangan / Aplikasi                     |
 |-------------------------------|------------------------------------------|--------------------------------------------|
@@ -96,9 +94,3 @@
 | **Klik kanan** di tag bar               | Toggle tag (tambah/tutup)  |
 | **Klik kiri** di LtSymbol               | Reset / kembali layout     |
 | **Klik kanan** di LtSymbol              | Ganti ke tile + cycle      |
-
-## Catatan Tambahan
-
-- **spawnandview** → membuka aplikasi + langsung pindah ke tag tertentu (contoh: Firefox & VSCode)
-- Gaps default: 12px, border: 1px, bar height: 24px
-- Font utama: Terminus pixelsize=15 (non-antialias)
