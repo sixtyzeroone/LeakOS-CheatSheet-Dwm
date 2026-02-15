@@ -1,0 +1,107 @@
+#!/usr/bin/env bash
+set -e
+
+APPDIR="/usr/share/applications"
+ICON="/usr/share/icons/Treepata/apps/48/Terminal.png"
+
+write_desktop() {
+  local name="$1"
+  local exec="$2"
+  local category="$3"
+  local comment="$4"
+  local terminal="$5"
+
+  local file="$APPDIR/$name.desktop"
+
+  if [ -f "$file" ]; then
+    echo "[SKIP] $name.desktop already exists"
+    return
+  fi
+
+  cat > "$file" <<EOF
+[Desktop Entry]
+Name=$name
+Comment=$comment
+Exec=/bin/bash -c "$exec; exec bash"
+Icon=$ICON
+Terminal=$terminal
+Type=Application
+Categories=$category;
+StartupNotify=true
+EOF
+
+  chmod 644 "$file"
+  echo "[CREATED] $name → $category"
+}
+
+# ===============================
+# MITM / SNIFFING / PACKET
+# ===============================
+declare -A MITM_TOOLS=(
+  [wireshark]="GUI network packet analyzer"
+  [tshark]="CLI packet capture and analysis tool"
+  [tcpdump]="Command-line packet sniffer"
+  [ngrep]="Network grep packet analyzer"
+  [netsniff-ng]="High performance packet sniffer"
+  [ssldump]="SSL/TLS traffic analyzer"
+  [tcpreplay]="Replay captured network traffic"
+  [etherape]="Graphical network traffic monitor"
+  [hping3]="Packet crafting and TCP/IP testing tool"
+  [netcat]="Network utility for reading and writing data"
+  [socat]="Multipurpose bidirectional data relay"
+)
+
+for t in "${!MITM_TOOLS[@]}"; do
+  command -v "$t" &>/dev/null || continue
+  write_desktop "$t" "$t" "LEAKOS-mitm" "${MITM_TOOLS[$t]}" true
+done
+
+# ==================================
+# INTELLIGENT GATHERING / RECON
+# ==================================
+declare -A INTEL_TOOLS=(
+  [nmap]="Network exploration and reconnaissance tool"
+  [netdiscover]="ARP-based network reconnaissance tool"
+  [arp-scan]="ARP scanning and host discovery tool"
+  [traceroute]="Trace network route to host"
+  [mtr]="Network diagnostic traceroute tool"
+  [p0f]="Passive OS fingerprinting tool"
+)
+
+for t in "${!INTEL_TOOLS[@]}"; do
+  command -v "$t" &>/dev/null || continue
+  write_desktop "$t" "$t" "LEAKOS-intelligent-gather" "${INTEL_TOOLS[$t]}" true
+done
+
+# ==================================
+# VULNERABILITY ANALYSIS / SCANNING
+# ==================================
+declare -A VULN_TOOLS=(
+  [masscan]="Fast TCP port scanner"
+  [zmap]="Internet-wide network scanner"
+)
+
+for t in "${!VULN_TOOLS[@]}"; do
+  command -v "$t" &>/dev/null || continue
+  write_desktop "$t" "$t" "LEAKOS-vuln-analysis" "${VULN_TOOLS[$t]}" true
+done
+
+# ==================================
+# SERVICE / MONITORING / IDS
+# ==================================
+declare -A SERVICE_TOOLS=(
+  [iftop]="Display bandwidth usage on network interfaces"
+  [nethogs]="Per-process network bandwidth monitor"
+  [iptraf-ng]="Interactive IP traffic monitor"
+  [bmon]="Bandwidth monitor and rate estimator"
+  [zeek]="Network security monitoring framework"
+  [snort]="Intrusion detection system"
+  [suricata]="Network threat detection engine"
+)
+
+for t in "${!SERVICE_TOOLS[@]}"; do
+  command -v "$t" &>/dev/null || continue
+  write_desktop "$t" "$t" "LEAKOS-service" "${SERVICE_TOOLS[$t]}" true
+done
+
+echo "=== DONE: LeakOS Network tools generated (SAFE MODE) ==="
